@@ -16,18 +16,21 @@ class Homepage extends StatelessWidget {
       appBar: AppBar(
         title: Text("homepage"),
       ),
-      body: Center(
-        child: Container(
-          height: 100,
-          width: 100,
-          decoration: BoxDecoration(
-              color: Colors.blueGrey, borderRadius: BorderRadius.circular(10)),
-          padding: const EdgeInsets.all(9),
-          alignment: Alignment.topLeft,
-          child: Text(
-            "BOX",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
+      body: Container(
+        color: Colors.amberAccent,
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 150,
+              width: 150,
+              color: Colors.black26,
+            ),
+            Container(
+              height: 150,
+              width: 150,
+              color: Colors.black38,
+            )
+          ],
         ),
       ),
     );
