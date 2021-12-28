@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,7 +36,13 @@ class Homepage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Meri Pyari App"),
       ),
-      body: Container(),
+      body: Center(
+        child: Card(
+          child: Column(
+            children: <Widget>[Image.asset("images/11.jpg")],
+          ),
+        ),
+      ),
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
