@@ -27,8 +27,21 @@ void main() {
   );
 }
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  @override
+  TextEditingController _newtext = TextEditingController();
+  var oldtext = "Change kro Muje";
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +49,39 @@ class Homepage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Meri Pyari App"),
       ),
-      body: Center(
-        child: Card(
-          child: Column(
-            children: <Widget>[Image.asset("images/11.jpg")],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Card(
+              child: Column(
+                children: <Widget>[
+                  Image.asset(
+                    "images/11.jpg",
+                    fit: BoxFit.cover,
+                    height: 300,
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    oldtext,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: TextField(
+                        controller: _newtext,
+                        decoration: InputDecoration(
+                          hintText: "Enter some thing",
+                          labelText: "Enter Here",
+                          border: OutlineInputBorder(),
+                        )),
+                  )
+                ],
+              ),
+            ),
           ),
         ),
       ),
@@ -77,7 +119,10 @@ class Homepage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          oldtext = _newtext.text;
+          setState(() {});
+        },
         child: Icon(Icons.edit),
       ),
     );
